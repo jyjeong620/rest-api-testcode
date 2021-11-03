@@ -12,14 +12,14 @@ public class MemberService {
 
   private final MemberRepository memberRepository;
 
-  public String join(final Member member) {
+  public Long join(final Member member) {
     this.memberRepository.findByName(member.getName())
         .ifPresent(m -> {
           throw new IllegalStateException("이미 존재하는 회원입니다.");
         });
 
     this.memberRepository.save(member);
-    return member.getName();
+    return member.getId();
   }
 
   public Boolean login(final Member member) {

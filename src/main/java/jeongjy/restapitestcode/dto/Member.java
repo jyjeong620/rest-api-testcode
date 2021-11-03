@@ -15,6 +15,9 @@ import lombok.Setter;
 public class Member {
 
   @Id
+  @GeneratedValue
+  Long id;
+
   String name;
 
   String password;
